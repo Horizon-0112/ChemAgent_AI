@@ -1,0 +1,296 @@
+/* ============================================================
+   Global Styles & Design Tokens
+   Theme: Cyberpunk Science Lab — Deep dark + neon accents
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+/* ── Design Tokens ──────────────────────────────────────── */
+:root {
+  /* Colors */
+  --bg-primary: #060a18;
+  --bg-secondary: #0c1229;
+  --bg-tertiary: #111938;
+  --bg-card: rgba(15, 23, 60, 0.65);
+  --bg-card-hover: rgba(20, 30, 75, 0.75);
+  --bg-input: rgba(10, 16, 40, 0.8);
+
+  --border-primary: rgba(100, 120, 200, 0.15);
+  --border-accent: rgba(0, 255, 136, 0.3);
+  --border-glow: rgba(0, 180, 216, 0.4);
+
+  --text-primary: #e8ecf4;
+  --text-secondary: #8892b0;
+  --text-muted: #5a6380;
+  --text-inverse: #060a18;
+
+  --accent-green: #00ff88;
+  --accent-blue: #00b4d8;
+  --accent-purple: #7c4dff;
+  --accent-cyan: #00e5ff;
+  --accent-yellow: #ffd740;
+  --accent-orange: #ff9100;
+  --accent-red: #ff5252;
+  --accent-pink: #ff4081;
+
+  --gradient-primary: linear-gradient(135deg, #00ff88, #00b4d8);
+  --gradient-purple: linear-gradient(135deg, #7c4dff, #00b4d8);
+  --gradient-warm: linear-gradient(135deg, #ff9100, #ff4081);
+  --gradient-bg: linear-gradient(180deg, #060a18 0%, #0c1229 50%, #111938 100%);
+
+  /* Glass effect */
+  --glass-bg: rgba(15, 23, 60, 0.45);
+  --glass-blur: blur(16px);
+  --glass-border: 1px solid rgba(100, 120, 200, 0.12);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow-green: 0 0 20px rgba(0, 255, 136, 0.15);
+  --shadow-glow-blue: 0 0 20px rgba(0, 180, 216, 0.15);
+
+  /* Typography */
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --fs-xs: 0.7rem;
+  --fs-sm: 0.8rem;
+  --fs-md: 0.9rem;
+  --fs-lg: 1.05rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.6rem;
+  --fs-3xl: 2rem;
+
+  /* Spacing */
+  --sp-xs: 4px;
+  --sp-sm: 8px;
+  --sp-md: 16px;
+  --sp-lg: 24px;
+  --sp-xl: 32px;
+  --sp-2xl: 48px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ── Reset & Base ───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 15px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--gradient-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 120, 200, 0.25);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 120, 200, 0.45);
+}
+
+/* ── Utility Classes ────────────────────────────────────── */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.gradient-border {
+  position: relative;
+  border: none;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--gradient-primary);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ── Animations ─────────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(0, 255, 136, 0.3); }
+  50% { opacity: 0.6; box-shadow: 0 0 16px rgba(0, 255, 136, 0.6); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes typing-cursor {
+  0%, 100% { border-right-color: var(--accent-green); }
+  50% { border-right-color: transparent; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease forwards;
+}
+
+/* ── Background Grid Effect ─────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(100, 120, 200, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 120, 200, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Selection ──────────────────────────────────────────── */
+::selection {
+  background: rgba(0, 255, 136, 0.25);
+  color: var(--text-primary);
+}
+
+/* ── Links ──────────────────────────────────────────────── */
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-cyan);
+}
+
+/* ── Buttons Base ───────────────────────────────────────── */
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all var(--transition-normal);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* ── Form Elements ──────────────────────────────────────── */
+input, select, textarea {
+  font-family: var(--font-ui);
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  padding: var(--sp-sm) var(--sp-md);
+  transition: all var(--transition-normal);
+  outline: none;
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted);
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238892b0' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+label {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-xs);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}

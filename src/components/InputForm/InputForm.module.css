@@ -1,0 +1,196 @@
+.formContainer {
+  padding: var(--sp-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xl);
+  background: linear-gradient(180deg, rgba(10, 14, 30, 0.9) 0%, rgba(5, 8, 18, 0.95) 100%), url('/images/molecule_network.png') bottom right/300px no-repeat;
+  height: 100%;
+}
+
+.sectionTitle {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--accent-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--sp-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+
+.sectionTitle::before {
+  content: '';
+  width: 3px;
+  height: 14px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-md);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldGroupFull {
+  grid-column: 1 / -1;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.unit {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  pointer-events: none;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-tertiary);
+  outline: none;
+  border: none;
+  padding: 0;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+  transition: transform var(--transition-fast);
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--sp-xs);
+}
+
+.sliderValue {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.startBtn {
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  margin-top: var(--sp-sm);
+}
+
+.startBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+}
+
+.startBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.startBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.startBtnRunning {
+  background: var(--gradient-purple);
+  animation: shimmer 2s linear infinite;
+  background-size: 200% 100%;
+}
+
+.resetBtn {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+  border: 1px solid var(--border-primary);
+  cursor: pointer;
+}
+
+.resetBtn:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+.hazardOption {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: var(--fs-sm);
+}
+
+.hazardOption:hover {
+  border-color: var(--accent-blue);
+}
+
+.hazardOptionActive {
+  border-color: var(--accent-green);
+  background: rgba(0, 255, 136, 0.06);
+}
+
+.hazardOptions {
+  display: flex;
+  gap: var(--sp-sm);
+}
+
+.hazardDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.hazardLow { background: var(--accent-green); }
+.hazardMedium { background: var(--accent-yellow); }
+.hazardHigh { background: var(--accent-red); }
+
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}

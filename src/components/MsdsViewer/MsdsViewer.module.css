@@ -1,0 +1,177 @@
+.viewer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.materialSection {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-primary);
+  overflow: hidden;
+}
+
+.materialHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-md);
+  background: rgba(15, 20, 45, 0.5);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  user-select: none;
+}
+
+.materialHeader:hover {
+  background: rgba(20, 28, 60, 0.6);
+}
+
+.materialHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+
+.materialHeaderName {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.chevron {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  transition: transform var(--transition-fast);
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
+}
+
+.msdsContent {
+  padding: var(--sp-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+  border-top: 1px solid var(--border-primary);
+  animation: slide-up 0.2s ease;
+}
+
+.msdsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.msdsLabel {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.msdsValue {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.ghsBadges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ghsBadge {
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  background: rgba(255, 82, 82, 0.1);
+  color: var(--accent-red);
+  border: 1px solid rgba(255, 82, 82, 0.25);
+}
+
+.hazardList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hazardList li {
+  font-size: var(--fs-xs);
+  color: var(--accent-yellow);
+  padding-left: 16px;
+  position: relative;
+}
+
+.hazardList li::before {
+  content: '⚠';
+  position: absolute;
+  left: 0;
+  font-size: 10px;
+}
+
+.firstAidGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-sm);
+}
+
+.firstAidItem {
+  padding: var(--sp-sm);
+  background: rgba(10, 16, 40, 0.5);
+  border-radius: var(--radius-sm);
+}
+
+.firstAidType {
+  font-size: 10px;
+  color: var(--accent-blue);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.firstAidText {
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.warningBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: var(--sp-md);
+  border-radius: var(--radius-md);
+  background: rgba(255, 82, 82, 0.08);
+  border: 1px solid rgba(255, 82, 82, 0.2);
+  margin-bottom: var(--sp-md);
+}
+
+.warningIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.warningText {
+  font-size: var(--fs-sm);
+  color: var(--accent-red);
+  font-weight: 500;
+}
+
+.noData {
+  padding: var(--sp-xl);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 768px) {
+  .firstAidGrid {
+    grid-template-columns: 1fr;
+  }
+}
