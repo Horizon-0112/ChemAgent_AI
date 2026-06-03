@@ -1,0 +1,72 @@
+steps:
+  # ── 1. 프론트엔드 + 백엔드 통합 컨테이너 이미지 빌드 ──────────────
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/chemagent-unified:$COMMIT_SHA'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/chemagent-unified:latest'
+      - '.'
+
+  # ── 2. Container Registry에 이미지 푸시 ───────────────────────────
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '--all-tags', 'gcr.io/$PROJECT_ID/chemagent-unified']
+
+  # ── 3. Cloud Run에 배포 ───────────────────────────────────────────
+  #
+  #  [필수 사전 작업]
+  #  1. Cloud SQL PostgreSQL 인스턴스 생성:
+  #     gcloud sql instances create chemagent-db \
+  #       --database-version=POSTGRES_15 \
+  #       --tier=db-f1-micro \
+  #       --region=asia-northeast3
+  #
+  #  2. DB / 사용자 생성:
+  #     gcloud sql databases create chemagent --instance=chemagent-db
+  #     gcloud sql users create chemagent_user \
+  #       --instance=chemagent-db --password=YOUR_STRONG_PASSWORD
+  #
+  #  3. Secret Manager에 비밀번호 저장 (권장):
+  #     echo -n "YOUR_STRONG_PASSWORD" | \
+  #       gcloud secrets create chemagent-db-password --data-file=-
+  #
+  #  4. Cloud Build 서비스 계정에 Cloud SQL Client 권한 부여:
+  #     gcloud projects add-iam-policy-binding $PROJECT_ID \
+  #       --member="serviceAccount:$PROJECT_NUMBER@cloudbuild.gserviceaccount.com" \
+  #       --role="roles/cloudsql.client"
+  # ─────────────────────────────────────────────────────────────────
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'chemagent-service'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/chemagent-unified:$COMMIT_SHA'
+      - '--region'
+      - 'asia-northeast3'           # 서울 리전 (원하는 리전으로 변경)
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--port'
+      - '8080'
+      # Cloud SQL 인스턴스 연결 (Unix socket 자동 마운트)
+      - '--add-cloudsql-instances'
+      - '$PROJECT_ID:asia-northeast3:chemagent-db'
+      # 환경변수 — 민감 정보는 Secret Manager 사용 권장
+      - '--set-env-vars'
+      - 'CLOUD_SQL_CONNECTION_NAME=$PROJECT_ID:asia-northeast3:chemagent-db,CLOUD_SQL_DATABASE=chemagent,CLOUD_SQL_USER=chemagent_user'
+      # Cloud SQL 비밀번호는 Secret Manager에서 주입 (권장)
+      - '--set-secrets'
+      - 'CLOUD_SQL_PASSWORD=chemagent-db-password:latest,GEMINI_API_KEY=gemini-api-key:latest'
+      # 최소 인스턴스 수 (cold start 방지, 비용 발생 주의)
+      - '--min-instances'
+      - '0'
+      - '--max-instances'
+      - '10'
+      - '--memory'
+      - '512Mi'
+
+images:
+  - 'gcr.io/$PROJECT_ID/chemagent-unified'

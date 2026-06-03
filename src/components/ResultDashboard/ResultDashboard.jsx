@@ -148,6 +148,15 @@ export default function ResultDashboard({ result, params, status }) {
                 ))}
               </div>
             </div>
+
+            {/* Disclaimer */}
+            <div className={styles.disclaimer}>
+              <span className={styles.disclaimerIcon}>ⓘ</span>
+              <span>
+                Catalyst correction factors use demo-purpose virtual data.
+                &nbsp;They can be replaced with experimental values for production use.
+              </span>
+            </div>
           </>
         )}
 

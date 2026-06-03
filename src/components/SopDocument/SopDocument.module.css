@@ -1,3 +1,98 @@
+/* ── AI Hallucination Warning Banner ─────────────────────── */
+.aiBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-md);
+  padding: var(--sp-md) var(--sp-lg);
+  background: linear-gradient(135deg, rgba(204, 68, 0, 0.12), rgba(255, 120, 0, 0.06));
+  border: 1px solid rgba(204, 68, 0, 0.4);
+  border-left: 4px solid #cc4400;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--sp-sm);
+}
+
+.aiBannerIcon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.aiBannerText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.aiBannerText strong {
+  font-size: var(--fs-sm);
+  color: #ff8844;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.aiBannerText span {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.downloadDocxPrimary {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #0a84ff, #005ec9);
+  border: 1px solid rgba(100, 180, 255, 0.3);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 12px rgba(10, 132, 255, 0.3);
+  white-space: nowrap;
+}
+
+.downloadDocxPrimary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1a94ff, #0068d9);
+  box-shadow: 0 4px 20px rgba(10, 132, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.downloadDocxPrimary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.docxIcon {
+  font-size: 1.1rem;
+}
+
+.exportingSpinner {
+  font-size: 1.1rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Edit Mode Note ───────────────────────────────────────── */
+.editModeNote {
+  font-size: var(--fs-xs);
+  color: var(--accent-cyan);
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  margin-bottom: var(--sp-sm);
+}
+
+/* ── Main Container ────────────────────────────────────────── */
 .sopContainer {
   display: flex;
   flex-direction: column;
@@ -45,6 +140,75 @@
   padding: var(--sp-lg) var(--sp-xl);
   max-height: 70vh;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbarActions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-lg);
+}
+
+.modeToggle {
+  display: flex;
+  align-items: center;
+  background: rgba(15, 20, 45, 0.6);
+  border-radius: var(--radius-full);
+  padding: 4px;
+  border: 1px solid var(--border-primary);
+}
+
+.toggleBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.toggleBtn.active {
+  background: var(--bg-card);
+  color: var(--accent-cyan);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggleBtn:hover:not(.active) {
+  color: var(--text-secondary);
+}
+
+.downloadGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+}
+
+.downloadDocx {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+.downloadDocx:hover {
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.editorTextarea {
+  width: 100%;
+  min-height: 500px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+}
+.editorTextarea:focus {
+  color: var(--text-primary);
 }
 
 /* ── Markdown Rendered Content ────────────────────────────── */

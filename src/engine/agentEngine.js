@@ -71,7 +71,7 @@ export async function runAgentPipeline(params, onLog, onPhaseChange) {
     const maxHazardRank = hazardRank[params.maxHazard] || 2;
 
     const candidates = chemicals.filter((c) => {
-      return hazardRank[c.hazardLevel] <= maxHazardRank && c.category !== "첨가제";
+      return hazardRank[c.hazardLevel] <= maxHazardRank && c.category !== "Additive";
     });
 
     onLog({ type: "THINK", text: `[${timestamp()}] Filtering by hazard constraint (≤ ${params.maxHazard})...` });
@@ -123,7 +123,7 @@ export async function runAgentPipeline(params, onLog, onPhaseChange) {
     for (const cand of candidates) {
       const msds = msdsData.find((m) => m.chemicalId === cand.id);
       if (msds) {
-        if (msds.signalWord === "위험" || msds.signalWord === "Danger") {
+        if (msds.signalWord === "Danger") {
           warnings.push({
             materialId: cand.id,
             materialName: cand.name,

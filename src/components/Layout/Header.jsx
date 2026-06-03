@@ -13,7 +13,7 @@ const STATUS_MAP = {
   error: { label: "ERROR", className: styles.statusError },
 };
 
-export default function Header({ status, historyCount, onToggleHistory }) {
+export default function Header({ status, historyCount, onToggleHistory, onToggleDataManager, activeDatasetId }) {
   const s = STATUS_MAP[status] || STATUS_MAP.idle;
 
   return (
@@ -31,6 +31,15 @@ export default function Header({ status, historyCount, onToggleHistory }) {
           <span className={styles.statusDot} />
           {s.label}
         </div>
+
+        <button
+          className={`${styles.dataBtn} ${activeDatasetId ? styles.dataBtnCustom : ""}`}
+          onClick={onToggleDataManager}
+          title="Manage Datasets"
+        >
+          🗄 Data
+          {activeDatasetId && <span className={styles.dataIndicator} />}
+        </button>
 
         {historyCount > 0 && (
           <button

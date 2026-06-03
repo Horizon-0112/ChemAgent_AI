@@ -292,3 +292,26 @@
 .tabContent {
   animation: fade-in 0.2s ease;
 }
+
+/* ── Disclaimer ───────────────────────────────────────────── */
+.disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 193, 64, 0.05);
+  border: 1px solid rgba(255, 193, 64, 0.18);
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: rgba(255, 193, 64, 0.65);
+  margin-top: var(--sp-md);
+}
+
+.disclaimerIcon {
+  flex-shrink: 0;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 1px;
+}
+

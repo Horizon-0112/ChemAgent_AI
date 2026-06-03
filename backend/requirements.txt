@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+sqlalchemy[asyncio]
+pydantic
+google-genai
+python-dotenv
+python-docx
+python-multipart
+
+# PostgreSQL async driver
+asyncpg
+
+# GCP Cloud SQL Python Connector (Unix socket / IAM Auth)
+cloud-sql-python-connector[asyncpg]

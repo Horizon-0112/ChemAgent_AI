@@ -146,6 +146,41 @@
   font-weight: 600;
 }
 
+.dataBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-primary);
+  transition: all var(--transition-normal);
+}
+
+.dataBtn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  background: rgba(0, 229, 255, 0.06);
+}
+
+.dataBtnCustom {
+  border-color: rgba(0, 229, 255, 0.35);
+  color: var(--accent-cyan);
+}
+
+.dataIndicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 6px rgba(0, 255, 136, 0.6);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
 @media (max-width: 768px) {
   .header {
     padding: var(--sp-sm) var(--sp-md);

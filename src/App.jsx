@@ -4,6 +4,7 @@ import Header from "./components/Layout/Header.jsx";
 import InputForm from "./components/InputForm/InputForm.jsx";
 import AgentConsole from "./components/AgentConsole/AgentConsole.jsx";
 import ResultDashboard from "./components/ResultDashboard/ResultDashboard.jsx";
+import DataManager from "./components/DataManager/DataManager.jsx";
 import styles from "./App.module.css";
 
 export default function App() {
@@ -21,11 +22,13 @@ export default function App() {
   } = useAgent();
 
   const [showHistory, setShowHistory] = useState(false);
+  const [showDataManager, setShowDataManager] = useState(false);
   const [lastParams, setLastParams] = useState(null);
+  const [activeDatasetId, setActiveDatasetId] = useState(null); // null = Demo Dataset
 
   const handleStart = (params) => {
     setLastParams(params);
-    startAgent(params);
+    startAgent({ ...params, datasetId: activeDatasetId });
   };
 
   const handleReset = () => {
@@ -45,6 +48,8 @@ export default function App() {
         status={status}
         historyCount={history.length}
         onToggleHistory={() => setShowHistory(true)}
+        onToggleDataManager={() => setShowDataManager(true)}
+        activeDatasetId={activeDatasetId}
       />
 
       <main className={styles.main}>
@@ -129,6 +134,15 @@ export default function App() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Dataset Manager Modal */}
+      {showDataManager && (
+        <DataManager
+          activeDatasetId={activeDatasetId}
+          onActivate={(id) => setActiveDatasetId(id)}
+          onClose={() => setShowDataManager(false)}
+        />
       )}
     </div>
   );

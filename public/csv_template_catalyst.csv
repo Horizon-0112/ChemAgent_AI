@@ -1,0 +1,3 @@
+id,name,name_ko,type,activation_temp,selectivity,toxicity,lifetime,cost_per_kg,effect_on_strength,effect_on_heat_res,effect_on_eco,description
+CT-101,ExampleCat-A,예시촉매-A,Metal Oxide,200,90,low,2000,60.0,1.05,1.08,0.97,Example general-purpose catalyst with high selectivity.
+CT-102,ExampleCat-B,예시촉매-B,Enzyme,40,98,low,900,400.0,0.95,0.88,1.20,Bio-based enzyme catalyst for eco-friendly synthesis.

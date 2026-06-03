@@ -1,16 +1,15 @@
 // ============================================================
-// 가상 화학 물질 데이터셋 (Virtual Chemical Materials Dataset)
-// 오픈소스 화학 데이터 및 일반적인 고분자/촉매 물성 가이드라인을 벤치마킹
+// Virtual Chemical Materials Dataset
+// Benchmarked against open source chemical data and general polymer/catalyst property guidelines
 // ============================================================
 
 const chemicals = [
-  // ── 고분자 (Polymers) ──────────────────────────────────
+  // ── Polymers ──────────────────────────────────
   {
     id: "PM-001",
     name: "PolyEther-K200",
-    nameKo: "폴리에테르-K200",
-    category: "고분자",
-    subCategory: "엔지니어링 플라스틱",
+    category: "Polymer",
+    subCategory: "Engineering Plastic",
     molecularWeight: 28500,
     heatResistance: 285,
     tensileStrength: 72.5,
@@ -25,9 +24,8 @@ const chemicals = [
   {
     id: "PM-002",
     name: "NylonFlex-6T",
-    nameKo: "나일론플렉스-6T",
-    category: "고분자",
-    subCategory: "엔지니어링 플라스틱",
+    category: "Polymer",
+    subCategory: "Engineering Plastic",
     molecularWeight: 31200,
     heatResistance: 310,
     tensileStrength: 85.0,
@@ -42,9 +40,8 @@ const chemicals = [
   {
     id: "PM-003",
     name: "BioPolyLac-300",
-    nameKo: "바이오폴리락-300",
-    category: "고분자",
-    subCategory: "생분해성 고분자",
+    category: "Polymer",
+    subCategory: "Biodegradable Polymer",
     molecularWeight: 18000,
     heatResistance: 165,
     tensileStrength: 52.0,
@@ -59,9 +56,8 @@ const chemicals = [
   {
     id: "PM-004",
     name: "PEEK-Ultra",
-    nameKo: "PEEK-울트라",
-    category: "고분자",
-    subCategory: "고성능 고분자",
+    category: "Polymer",
+    subCategory: "High Performance Polymer",
     molecularWeight: 42000,
     heatResistance: 340,
     tensileStrength: 100.0,
@@ -76,9 +72,8 @@ const chemicals = [
   {
     id: "PM-005",
     name: "EpoxyTech-550",
-    nameKo: "에폭시텍-550",
-    category: "고분자",
-    subCategory: "열경화성 수지",
+    category: "Polymer",
+    subCategory: "Thermosetting Resin",
     molecularWeight: 5200,
     heatResistance: 220,
     tensileStrength: 68.0,
@@ -93,9 +88,8 @@ const chemicals = [
   {
     id: "PM-006",
     name: "SilkFiber-BN",
-    nameKo: "실크파이버-BN",
-    category: "고분자",
-    subCategory: "천연 고분자",
+    category: "Polymer",
+    subCategory: "Natural Polymer",
     molecularWeight: 75000,
     heatResistance: 170,
     tensileStrength: 45.0,
@@ -110,9 +104,8 @@ const chemicals = [
   {
     id: "PM-007",
     name: "PolyImide-HT",
-    nameKo: "폴리이미드-HT",
-    category: "고분자",
-    subCategory: "고성능 고분자",
+    category: "Polymer",
+    subCategory: "High Performance Polymer",
     molecularWeight: 55000,
     heatResistance: 400,
     tensileStrength: 120.0,
@@ -127,9 +120,8 @@ const chemicals = [
   {
     id: "PM-008",
     name: "AcryPlast-200",
-    nameKo: "아크리플라스트-200",
-    category: "고분자",
-    subCategory: "범용 플라스틱",
+    category: "Polymer",
+    subCategory: "General Purpose Plastic",
     molecularWeight: 22000,
     heatResistance: 95,
     tensileStrength: 55.0,
@@ -144,9 +136,8 @@ const chemicals = [
   {
     id: "PM-009",
     name: "PolyCarbX-700",
-    nameKo: "폴리카보네이트X-700",
-    category: "고분자",
-    subCategory: "엔지니어링 플라스틱",
+    category: "Polymer",
+    subCategory: "Engineering Plastic",
     molecularWeight: 34000,
     heatResistance: 260,
     tensileStrength: 65.0,
@@ -161,9 +152,8 @@ const chemicals = [
   {
     id: "PM-010",
     name: "PPSulfide-900",
-    nameKo: "PPS 설파이드-900",
-    category: "고분자",
-    subCategory: "고성능 고분자",
+    category: "Polymer",
+    subCategory: "High Performance Polymer",
     molecularWeight: 48000,
     heatResistance: 370,
     tensileStrength: 95.0,
@@ -176,13 +166,12 @@ const chemicals = [
     color: "#ffab40",
   },
 
-  // ── 수지 (Resins) ─────────────────────────────────────
+  // ── Resins ─────────────────────────────────────
   {
     id: "RS-001",
     name: "PhenolResin-A1",
-    nameKo: "페놀수지-A1",
-    category: "수지",
-    subCategory: "열경화성 수지",
+    category: "Resin",
+    subCategory: "Thermosetting Resin",
     molecularWeight: 3500,
     heatResistance: 200,
     tensileStrength: 45.0,
@@ -197,9 +186,8 @@ const chemicals = [
   {
     id: "RS-002",
     name: "UreaForm-X",
-    nameKo: "요소포름-X",
-    category: "수지",
-    subCategory: "아미노 수지",
+    category: "Resin",
+    subCategory: "Amino Resin",
     molecularWeight: 2800,
     heatResistance: 150,
     tensileStrength: 38.0,
@@ -214,9 +202,8 @@ const chemicals = [
   {
     id: "RS-003",
     name: "VinylEster-Pro",
-    nameKo: "비닐에스테르-프로",
-    category: "수지",
-    subCategory: "불포화 수지",
+    category: "Resin",
+    subCategory: "Unsaturated Resin",
     molecularWeight: 4200,
     heatResistance: 190,
     tensileStrength: 75.0,
@@ -231,9 +218,8 @@ const chemicals = [
   {
     id: "RS-004",
     name: "SiliconeR-HT",
-    nameKo: "실리콘수지-HT",
-    category: "수지",
-    subCategory: "실리콘 수지",
+    category: "Resin",
+    subCategory: "Silicone Resin",
     molecularWeight: 8500,
     heatResistance: 350,
     tensileStrength: 30.0,
@@ -246,13 +232,12 @@ const chemicals = [
     color: "#90caf9",
   },
 
-  // ── 첨가제 (Additives) ────────────────────────────────
+  // ── Additives ────────────────────────────────
   {
     id: "AD-001",
     name: "NanoSilica-F",
-    nameKo: "나노실리카-F",
-    category: "첨가제",
-    subCategory: "강화 필러",
+    category: "Additive",
+    subCategory: "Reinforcing Filler",
     molecularWeight: 60,
     heatResistance: 1700,
     tensileStrength: 0,
@@ -267,9 +252,8 @@ const chemicals = [
   {
     id: "AD-002",
     name: "CarbonNT-X",
-    nameKo: "탄소나노튜브-X",
-    category: "첨가제",
-    subCategory: "나노 보강재",
+    category: "Additive",
+    subCategory: "Nano Reinforcement",
     molecularWeight: 12,
     heatResistance: 3000,
     tensileStrength: 0,
@@ -284,9 +268,8 @@ const chemicals = [
   {
     id: "AD-003",
     name: "GlassFiber-S2",
-    nameKo: "유리섬유-S2",
-    category: "첨가제",
-    subCategory: "섬유 보강재",
+    category: "Additive",
+    subCategory: "Fiber Reinforcement",
     molecularWeight: 0,
     heatResistance: 840,
     tensileStrength: 0,
@@ -301,9 +284,8 @@ const chemicals = [
   {
     id: "AD-004",
     name: "FlameGuard-P",
-    nameKo: "난연제-P",
-    category: "첨가제",
-    subCategory: "난연제",
+    category: "Additive",
+    subCategory: "Flame Retardant",
     molecularWeight: 430,
     heatResistance: 300,
     tensileStrength: 0,
@@ -318,9 +300,8 @@ const chemicals = [
   {
     id: "AD-005",
     name: "UVStab-220",
-    nameKo: "자외선안정제-220",
-    category: "첨가제",
-    subCategory: "안정제",
+    category: "Additive",
+    subCategory: "Stabilizer",
     molecularWeight: 326,
     heatResistance: 250,
     tensileStrength: 0,
@@ -335,9 +316,8 @@ const chemicals = [
   {
     id: "AD-006",
     name: "PlastiSoft-E",
-    nameKo: "가소제-E",
-    category: "첨가제",
-    subCategory: "가소제",
+    category: "Additive",
+    subCategory: "Plasticizer",
     molecularWeight: 390,
     heatResistance: 80,
     tensileStrength: 0,
@@ -352,9 +332,8 @@ const chemicals = [
   {
     id: "AD-007",
     name: "AntioxBHT-Plus",
-    nameKo: "산화방지제-BHT플러스",
-    category: "첨가제",
-    subCategory: "산화방지제",
+    category: "Additive",
+    subCategory: "Antioxidant",
     molecularWeight: 220,
     heatResistance: 180,
     tensileStrength: 0,
@@ -369,9 +348,8 @@ const chemicals = [
   {
     id: "AD-008",
     name: "ColorMast-B",
-    nameKo: "컬러마스터-B",
-    category: "첨가제",
-    subCategory: "착색제",
+    category: "Additive",
+    subCategory: "Colorant",
     molecularWeight: 0,
     heatResistance: 250,
     tensileStrength: 0,
@@ -384,13 +362,12 @@ const chemicals = [
     color: "#42a5f5",
   },
 
-  // ── 추가 고분자 ───────────────────────────────────────
+  // ── Additional Polymers ───────────────────────────────────────
   {
     id: "PM-011",
     name: "PTFE-SlickCoat",
-    nameKo: "PTFE-슬릭코트",
-    category: "고분자",
-    subCategory: "불소 고분자",
+    category: "Polymer",
+    subCategory: "Fluoropolymer",
     molecularWeight: 100000,
     heatResistance: 327,
     tensileStrength: 25.0,
@@ -405,9 +382,8 @@ const chemicals = [
   {
     id: "PM-012",
     name: "PolyUreth-Flex",
-    nameKo: "폴리우레탄-플렉스",
-    category: "고분자",
-    subCategory: "엘라스토머",
+    category: "Polymer",
+    subCategory: "Elastomer",
     molecularWeight: 15000,
     heatResistance: 120,
     tensileStrength: 40.0,
@@ -422,9 +398,8 @@ const chemicals = [
   {
     id: "PM-013",
     name: "HDPE-GreenMax",
-    nameKo: "고밀도PE-그린맥스",
-    category: "고분자",
-    subCategory: "범용 플라스틱",
+    category: "Polymer",
+    subCategory: "General Purpose Plastic",
     molecularWeight: 200000,
     heatResistance: 130,
     tensileStrength: 32.0,
@@ -439,9 +414,8 @@ const chemicals = [
   {
     id: "PM-014",
     name: "PPCopoly-R",
-    nameKo: "PP코폴리-R",
-    category: "고분자",
-    subCategory: "범용 플라스틱",
+    category: "Polymer",
+    subCategory: "General Purpose Plastic",
     molecularWeight: 180000,
     heatResistance: 160,
     tensileStrength: 35.0,
@@ -456,9 +430,8 @@ const chemicals = [
   {
     id: "PM-015",
     name: "LCP-ArrowX",
-    nameKo: "액정고분자-ArrowX",
-    category: "고분자",
-    subCategory: "고성능 고분자",
+    category: "Polymer",
+    subCategory: "High Performance Polymer",
     molecularWeight: 30000,
     heatResistance: 335,
     tensileStrength: 185.0,
@@ -473,9 +446,8 @@ const chemicals = [
   {
     id: "PM-016",
     name: "PLA-EcoBlend",
-    nameKo: "PLA-에코블렌드",
-    category: "고분자",
-    subCategory: "생분해성 고분자",
+    category: "Polymer",
+    subCategory: "Biodegradable Polymer",
     molecularWeight: 120000,
     heatResistance: 155,
     tensileStrength: 50.0,
@@ -490,9 +462,8 @@ const chemicals = [
   {
     id: "PM-017",
     name: "PBT-ToughGrade",
-    nameKo: "PBT-터프그레이드",
-    category: "고분자",
-    subCategory: "엔지니어링 플라스틱",
+    category: "Polymer",
+    subCategory: "Engineering Plastic",
     molecularWeight: 38000,
     heatResistance: 225,
     tensileStrength: 56.0,
@@ -507,9 +478,8 @@ const chemicals = [
   {
     id: "PM-018",
     name: "PSulfone-Clear",
-    nameKo: "폴리설폰-클리어",
-    category: "고분자",
-    subCategory: "엔지니어링 플라스틱",
+    category: "Polymer",
+    subCategory: "Engineering Plastic",
     molecularWeight: 35000,
     heatResistance: 275,
     tensileStrength: 70.0,
@@ -524,9 +494,8 @@ const chemicals = [
   {
     id: "PM-019",
     name: "CelluNano-G",
-    nameKo: "셀룰로나노-G",
-    category: "고분자",
-    subCategory: "천연 고분자",
+    category: "Polymer",
+    subCategory: "Natural Polymer",
     molecularWeight: 500000,
     heatResistance: 200,
     tensileStrength: 140.0,
@@ -541,9 +510,8 @@ const chemicals = [
   {
     id: "PM-020",
     name: "ABS-ProImpact",
-    nameKo: "ABS-프로임팩트",
-    category: "고분자",
-    subCategory: "범용 플라스틱",
+    category: "Polymer",
+    subCategory: "General Purpose Plastic",
     molecularWeight: 90000,
     heatResistance: 105,
     tensileStrength: 43.0,

@@ -62,9 +62,9 @@ export default function MsdsViewer({ formulation, warnings }) {
                       <span key={s} className={styles.ghsBadge}>{s}</span>
                     ))}
                     <span className={styles.ghsBadge} style={{
-                      background: msds.signalWord === "위험" ? "rgba(255,82,82,0.15)" : "rgba(255,215,64,0.15)",
-                      color: msds.signalWord === "위험" ? "var(--accent-red)" : "var(--accent-yellow)",
-                      borderColor: msds.signalWord === "위험" ? "rgba(255,82,82,0.3)" : "rgba(255,215,64,0.3)",
+                      background: msds.signalWord === "Danger" ? "rgba(255,82,82,0.15)" : "rgba(255,215,64,0.15)",
+                      color: msds.signalWord === "Danger" ? "var(--accent-red)" : "var(--accent-yellow)",
+                      borderColor: msds.signalWord === "Danger" ? "rgba(255,82,82,0.3)" : "rgba(255,215,64,0.3)",
                     }}>
                       {msds.signalWord}
                     </span>
