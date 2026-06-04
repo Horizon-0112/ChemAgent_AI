@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncEngine,
 )
 from sqlalchemy.orm import DeclarativeBase
-from google.cloud.sql.connector import AsyncConnector, IPTypes
+from google.cloud.sql.connector import Connector, IPTypes
 
 from config import (
     CLOUD_SQL_CONNECTION_NAME,
@@ -19,12 +19,12 @@ from config import (
     CLOUD_SQL_PASSWORD,
 )
 
-_connector = AsyncConnector()
+_connector = Connector()
 
 
 async def _getconn():
     """Cloud SQL Connector를 통한 비동기 연결 생성."""
-    return await _connector.connect(
+    return await _connector.connect_async(
         CLOUD_SQL_CONNECTION_NAME,
         "asyncpg",
         user=CLOUD_SQL_USER,
