@@ -70,3 +70,6 @@ steps:
 
 images:
   - 'gcr.io/$PROJECT_ID/chemagent-unified'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
